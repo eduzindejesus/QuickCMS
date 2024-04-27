@@ -7,8 +7,10 @@ const app = express();
 
 app.set("views", path.join(__dirname, "src/views"));
 app.get("/", (req, res) => {
-  res.render("index");
+  const error = null; // Defina a variável error conforme necessário
+  res.render("main", { error: error });
 });
+
 app.set("view engine", "ejs"); // Definindo EJS
 app.use(bodyParser.json());
 app.use(express.static("public"));
@@ -16,5 +18,5 @@ app.use("/pages", pageRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
