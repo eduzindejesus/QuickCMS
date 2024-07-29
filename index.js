@@ -8,7 +8,7 @@ const app = express();
 app.set("views", path.join(__dirname, "src/views"));
 app.get("/", (req, res) => {
   const error = null; // Defina a variável error conforme necessário
-  res.render("main", { error: error });
+  res.render("login", { error: error });
 });
 
 app.set("view engine", "ejs"); // Definindo EJS
