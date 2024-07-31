@@ -1,0 +1,19 @@
+{{> layout }}
+
+<h1 class="title">{{ name }}</h1>
+<p><strong>Release Date:</strong> {{ releaseDate }}</p>
+<p><strong>Genre:</strong> {{ genre }}</p>
+<p><strong>Price:</strong> {{ price }}</p>
+{{#image}}
+<img src="{{ image }}" alt="Page Image" style="max-width: 100%; height: auto" />
+{{/image}}
+
+{{#isLoggedIn}}
+<a class="button is-link" href="/pages/edit/{{ url }}">Edit</a>
+<a
+  class="button is-danger"
+  href="/pages/delete/{{ url }}"
+  onclick="return confirm('Are you sure?');"
+  >Delete</a
+>
+{{/isLoggedIn}}

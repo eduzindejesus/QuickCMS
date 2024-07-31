@@ -1,0 +1,40 @@
+{{> layout }}
+
+<h1 class="title columns is-centered">Home Page</h1>
+<br />
+<div class="box is-centered"">
+  <p class="subtitle">
+    Bem-vindo ao QuickCMS de Jogos Digitais! Este sistema de gerenciamento de
+    conteúdo permite que você crie e gerencie páginas para seus jogos favoritos.
+    Você pode adicionar informações essenciais como nomes de jogos, datas de
+    lançamento, gêneros e preços, tudo de forma personalizada e organizada.
+  </p>
+  
+  {{#pages}}
+  <br />
+  <p class="subtitle">Jogos Adicionados</p>
+  <br />
+  <div class="box">
+    <a href="/pages/{{.}}" class="title is-4">{{.}}</a>
+    {{#isLoggedIn}}
+    <p>
+      <a class="button is-link is-small" href="/pages/edit/{{.}}">Edit</a>
+      <a
+        class="button is-danger is-small"
+        href="/pages/delete/{{.}}"
+        onclick="return confirm('Are you sure?');"
+        >Delete</a
+      >
+    </p>
+</div>
+  {{/isLoggedIn}}
+</div>
+{{/pages}}
+
+{{#isLoggedIn}}
+<a class="button is-primary" href="/pages/create">Create New Page</a>
+<a class="button is-light" href="/auth/logout">Logout</a>
+{{/isLoggedIn}}
+{{^isLoggedIn}}
+<a class="button is-primary" href="/auth/login">Login</a>
+{{/isLoggedIn}}

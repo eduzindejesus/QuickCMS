@@ -1,0 +1,18 @@
+{{> layout }}
+
+<h1>{{#url}}Edit{{/url}}{{^url}}Create{{/url}} Page</h1>
+
+<form action="{{#url}}/pages/edit/{{url}}{{/url}}{{^url}}/pages/create{{/url}}" method="POST">
+  {{#url}}
+    <input type="hidden" name="url" value="{{url}}">
+  {{/url}}
+  
+  <label for="content">Content</label>
+  <textarea name="content" id="content">{{content}}</textarea>
+  
+  <button type="submit">Save</button>
+</form>
+
+{{#errors}}
+  <div>{{msg}}</div>
+{{/errors}}
