@@ -7,9 +7,24 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
     <style>
-      .navbar-item.is-active {
-        font-weight: bold;
-        color: #4a4a4a;
+      body {
+        background-color: #e6e6fa; /* Cor de fundo pastel */
+        height: 100vh;
+        justify-items: center;
+      }
+      .container {
+        max-width: 960px; /* Largura máxima para centralização */
+        margin: 0 auto; /* Centraliza horizontalmente */
+        padding: 1rem; /* Adiciona preenchimento */
+      }
+      .title {
+        color: #6a5acd; /* Tom de roxo pastel */
+      }
+      .button {
+        margin-top: 1rem;
+      }
+      .content-wrapper {
+        padding: 2rem;
       }
     </style>
   </head>
@@ -20,9 +35,6 @@
           <a class="navbar-item" href="/">Home</a>
           {{#isLoggedIn}}
           <a class="navbar-item" href="/admin">Admin</a>
-          <a class="navbar-item" href="/auth/logout">Logout</a>
-          {{else}}
-          <a class="navbar-item" href="/auth/login">Login</a>
           {{/isLoggedIn}}
         </div>
       </div>

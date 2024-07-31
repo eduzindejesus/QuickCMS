@@ -57,6 +57,18 @@ app.get("/admin", (req, res) => {
   });
 });
 
+app.get("/", (req, res) => {
+  fs.readdir(pagesDir, (err, files) => {
+    if (err) return res.status(500).send("Error reading pages directory");
+
+    const pages = files
+      .filter((file) => file.endsWith(".txt"))
+      .map((file) => file.replace(".txt", ""));
+
+    res.render("index", { pages, isLoggedIn: req.session.isLoggedIn });
+  });
+});
+
 app.listen(3000, () => {
   console.log("Server started on http://localhost:3000");
 });
