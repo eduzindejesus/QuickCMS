@@ -1,0 +1,12 @@
+{{> layout }}
+
+<div>
+  {{{ content }}}
+</div>
+
+{{#isLoggedIn}}
+  <a href="/pages/edit/{{url}}">Edit</a>
+  <form action="/pages/delete/{{url}}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this page?');">
+    <button type="submit">Delete</button>
+  </form>
+{{/isLoggedIn}}

@@ -1,0 +1,20 @@
+{{> layout }}
+
+<h1>Home Page</h1>
+
+{{#pages}}
+  <div>
+    <a href="/pages/{{.}}">{{.}}</a>
+    {{#isLoggedIn}}
+      - <a href="/pages/edit/{{.}}">Edit</a>
+      - <a href="/pages/delete/{{.}}" onclick="return confirm('Are you sure?');">Delete</a>
+    {{/isLoggedIn}}
+  </div>
+{{/pages}}
+
+{{#isLoggedIn}}
+  <a href="/pages/create">Create New Page</a> | <a href="/auth/logout">Logout</a>
+{{/isLoggedIn}}
+{{^isLoggedIn}}
+  <a href="/auth/login">Login</a>
+{{/isLoggedIn}}
